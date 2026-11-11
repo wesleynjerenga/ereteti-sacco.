@@ -1,9 +1,9 @@
-{
+* {
     box-sizing: border-box;
 }
 body{
     margin:0;
-    background : #63214b;
+    background : #d7d7da;
     color : #257b86;
     line-height: 1.5;
     /*font faces*/
@@ -59,7 +59,7 @@ nav{
 
 body{
     display: grid;
-    grid-template-columns:mimax(0,1fr) 18rem;
+    grid-template-columns:minmax(0,1fr) 18rem;
     grid-template-areas:
     "header header"
     "nav nav"
@@ -73,6 +73,36 @@ main { grid-area: main; }
 aside { grid-area: aside; }
 footer { grid-area: footer; }
 
+.message {
+  color: #B3261E;
+  min-height: 1.5em;
+  margin: 0.25rem 0 0.75rem;
+}
 
+input.invalid {
+  border: 2px solid #B3261E;
+}
 
+.route-card[hidden] {
+  display: none;
+}
 
+#route-search {
+  width: min(100%, 22rem);
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+}
+
+form {
+  max-width: 32rem;
+}
+
+input,
+select,
+button {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
