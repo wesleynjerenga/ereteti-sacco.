@@ -6,12 +6,7 @@
   <title>Deliveries — Ereteti Dairy Sacco</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600&amp;family=Source+Serif+4:wght@600&amp;display=swap">
   <link rel="stylesheet" href="css/style.css">
-  <!-- Week 8: the script, with defer -->
   <script src="js/main.js" defer></script>
-  <!--Embedded-->
-  <script>
-    console.log("Embedded JS");
-  </script>
 </head>
 <body>
 
@@ -60,11 +55,11 @@
          aria-live="polite"></p>
 
       <button type="submit">Record delivery</button>
-      <p id="form-message" aria-live="polite"></p>
+      <p id="form-message" class="message" aria-live="polite"></p>
     </form>
 
     <div class="table-scroll">
-      <table>
+      <table id="delivery-table">
         <caption>Milk received, Monday 12 October 2026</caption>
 
         <thead>
