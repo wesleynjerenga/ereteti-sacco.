@@ -1,31 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Deliveries — Ereteti Dairy Sacco</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600&amp;family=Source+Serif+4:wght@600&amp;display=swap">
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/main.js" defer></script>
-</head>
-<body>
-
-  <header>
-    <h1>Deliveries</h1>
-    <p>Milk collected twice a day, on three routes out of Ngong.</p>
-  </header>
-
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="routes.html">Routes</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><a href="register.html">Join</a></li>
-      <li><a href="deliveries.html">Deliveries</a></li>
-    </ul>
-  </nav>
-
+<?php
+$page_title = 'Deliveries';
+include 'includes/header.php';
+?>
   <main>
     <p>Milk received at the Olepolos centre on the Kiserian route,
     Monday 12 October 2026. Both sessions are listed: the morning
@@ -131,24 +107,4 @@
     listed: a rejected load is recorded, never deleted, because the
     farmer has a right to see what happened to their milk.</p>
   </main>
-
-  <aside>
-    <h2>Notices</h2>
-    <ul>
-      <li>Milk is paid at <strong>KSh 52.00 a litre</strong> from
-          1 October 2026.</li>
-      <li>Annual General Meeting: Saturday 17 October, 10 a.m., at the
-          Kiserian collection centre.</li>
-      <li>New members: <a href="register.html">apply to join</a>. You need
-          a national ID and a bank account.</li>
-    </ul>
-  </aside>
-
-  <footer>
-    <p>Ereteti Dairy Sacco, PO Box 4021, Ngong.</p>
-    <!-- change this line to your own name -->
-    <p>Site built by Flora Tulina, DBT Year 1, 2026.</p>
-  </footer>
-
-</body>
-</html>
+<?php include 'includes/footer.php'; ?>
