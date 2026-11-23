@@ -1,37 +1,23 @@
 <?php
+require_once 'includes/db.php';          // 1 · CONNECT — loads $conn
 $page_title = 'Our routes';
 include 'includes/header.php';
+// 2 · QUERY — ask the database for every route, in order
+$sql = "SELECT route_name, collection_centre FROM route ORDER BY route_id";
+$result = mysqli_query($conn, $sql);
 ?>
   <main>
-    <label for="route-search">Find a route</label>
-    <input id="route-search" type="search" placeholder="Search routes" aria-label="Search routes">
-
-    <section class="route-card">
-      <h2>Kiserian route</h2>
-      <p>The lorry runs from 6.30am and again from 4.00pm.</p>
-      <ul>
-        <li>Olepolos centre</li>
-        <li>Kandasi center</li>
-      </ul>
-    </section>
-
-    <section class="route-card">
-      <h2>Ngong route</h2>
-      <p>The Lorry runs from 7.00am and again from 3.00pm.</p>
-      <ul>
-        <li>Kibiko centre</li>
-        <li>Matasia Centre</li>
-        <li>Oloolua</li>
-      </ul>
-    </section>
-
-    <section class="route-card">
-      <h2>Rongai route</h2>
-      <p>The Lorry runs from 6.45am and again from 2.15pm.</p>
-      <ul>
-        <li>Nkaimurunya Center</li>
-        <li>Kware Square</li>
-      </ul>
-    </section>
+    <label for="route-search">Find a route or a centre</label>
+    <input type="search" id="route-search" placeholder="e.g. Ngong">
+    <p id="route-count" aria-live="polite"></p>
+<?php
+// 3 · FETCH the next row, and 4 · SHOW it — once for every row
+while ($row = mysqli_fetch_assoc($result)) {
+    echo '<section>';
+    echo '<h2>' . $row['route_name'] . ' route</h2>';
+    echo '<p>Milk is cooled at ' . $row['collection_centre'] . '.</p>';
+    echo '</section>';
+}
+?>
   </main>
 <?php include 'includes/footer.php'; ?>
