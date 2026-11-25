@@ -1,6 +1,6 @@
 # Lab 6 — my answers
 
-Name: Wesley Njerenga · Admission number: 209593
+Name: Wesley Ndwiga Njerenga · Admission number: 209593
 
 1. PHP checks the values again because browser validation can be bypassed with developer tools or a direct request. Server-side validation ensures invalid member numbers, dates, sessions, or litres are not accepted.
 
