@@ -57,34 +57,21 @@ if (member && memberMessage) {
   member.addEventListener('blur', checkMember);
 }
 
-function checkForm(event) {
-  if (!form) {
-    return;
-  }
-
+function recordDelivery(event) {
   checkMember();
   checkLitres();
 
-  const memberIsInvalid = member && member.classList.contains('invalid');
-  const litresAreInvalid = litres && litres.classList.contains('invalid');
-  const memberMissing = member && member.value.trim() === '';
-  const litresMissing = litres && litres.value === '';
-
-  if (memberIsInvalid || litresAreInvalid || memberMissing || litresMissing) {
-    if (formMessage) {
-      formMessage.textContent = 'Please correct the highlighted fields.';
-    }
+  if (member.classList.contains('invalid')) {
     event.preventDefault();
-    return;
-  }
-
-  if (formMessage) {
-    formMessage.textContent = '';
+    member.focus();
+  } else if (litres.classList.contains('invalid')) {
+    event.preventDefault();
+    litres.focus();
   }
 }
 
 if (form) {
-  form.addEventListener('submit', checkForm);
+  form.addEventListener('submit', recordDelivery);
 }
 
 function filterRoutes() {
@@ -113,18 +100,13 @@ function updateAcceptedTotal() {
   let total = 0;
 
   acceptedRows.forEach((row) => {
-    const acceptedCell = row.cells[4];
     const litresCell = row.cells[3];
 
-    if (!acceptedCell || !litresCell) {
-      return;
-    }
-
-    const isAccepted = acceptedCell.textContent.trim().toLowerCase() === 'yes';
-    const litresValue = Number(litresCell.textContent.trim());
-
-    if (isAccepted && !Number.isNaN(litresValue)) {
-      total += litresValue;
+    if (row.cells.length > 4 && row.cells[4].textContent.trim() === 'Yes' && litresCell) {
+      const litresValue = Number(litresCell.textContent.trim());
+      if (!Number.isNaN(litresValue)) {
+        total += litresValue;
+      }
     }
   });
 
